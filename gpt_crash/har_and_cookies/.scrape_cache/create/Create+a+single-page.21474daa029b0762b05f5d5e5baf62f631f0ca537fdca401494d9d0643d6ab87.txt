@@ -1,0 +1,77 @@
+Certainly! Below is a simple HTML code for a screensaver that features animated colorful circles moving around the screen. You can copy this code into an HTML file and open it in a web browser to see the screensaver effect.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screensaver</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: black;
+        }
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        const numCircles = 50;
+        const colors = ['#FF4500', '#1E90FF', '#32CD32', '#FFD700', '#FF69B4', '#FF1493', '#00FFFF', '#FF8C00'];
+
+        for (let i = 0; i < numCircles; i++) {
+            createCircle();
+        }
+
+        function createCircle() {
+            const circle = document.createElement('div');
+            const size = Math.random() * 50 + 20;
+            circle.style.width = `${size}px`;
+            circle.style.height = `${size}px`;
+            circle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            circle.style.left = `${Math.random() * window.innerWidth}px`;
+            circle.style.top = `${Math.random() * window.innerHeight}px`;
+            circle.classList.add('circle');
+            document.body.appendChild(circle);
+            animateCircle(circle, size);
+        }
+
+        function animateCircle(circle, size) {
+            const speedX = (Math.random() - 0.5) * 2;
+            const speedY = (Math.random() - 0.5) * 2;
+
+            function move() {
+                const rect = circle.getBoundingClientRect();
+                let newX = rect.left + speedX;
+                let newY = rect.top + speedY;
+
+                if (newX <= 0 || newX + size >= window.innerWidth) {
+                    speedX *= -1;
+                }
+                if (newY <= 0 || newY + size >= window.innerHeight) {
+                    speedY *= -1;
+                }
+
+                circle.style.left = `${newX}px`;
+                circle.style.top = `${newY}px`;
+                requestAnimationFrame(move);
+            }
+            move();
+        }
+    </script>
+</body>
+</html>
+```
+
+### Instructions to Use:
+1. Create a new text file and name it something like `screensaver.html`.
+2. Copy and paste the HTML code provided above into that file.
+3. Save the file and open it in a web browser.
+
+Enjoy the animated colorful circles moving around your screen!
