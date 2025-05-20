@@ -1,0 +1,99 @@
+Since today is 2025-04-03, the current season is Spring. Here's a simple HTML screensaver reflecting the season:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spring Screensaver</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #C9E4CA; /* Light green background */
+            overflow: hidden;
+        }
+        
+       .flower {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #FFC0CB; /* Pink flower */
+            animation: float 5s infinite;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+        
+       .leaf {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #32CD32; /* Lime green leaf */
+            animation: spin 3s infinite;
+        }
+        
+        @keyframes spin {
+            0% {
+                transform: rotate(0);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+       .sun {
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #F2C464; /* Yellow sun */
+            box-shadow: 0 0 50px #F2C464;
+        }
+    </style>
+</head>
+<body>
+    <div class="sun"></div>
+    <div class="flower" style="top: 20%; left: 30%;"></div>
+    <div class="flower" style="top: 40%; left: 60%;"></div>
+    <div class="flower" style="top: 60%; left: 20%;"></div>
+    <div class="leaf" style="top: 25%; left: 40%;"></div>
+    <div class="leaf" style="top: 50%; left: 10%;"></div>
+    <div class="leaf" style="top: 75%; left: 50%;"></div>
+    <script>
+        // Create more flowers and leaves at random positions
+        for (let i = 0; i < 20; i++) {
+            let flower = document.createElement('div');
+            flower.classList.add('flower');
+            flower.style.top = `${Math.random() * 90}%`;
+            flower.style.left = `${Math.random() * 90}%`;
+            document.body.appendChild(flower);
+        }
+        
+        for (let i = 0; i < 10; i++) {
+            let leaf = document.createElement('div');
+            leaf.classList.add('leaf');
+            leaf.style.top = `${Math.random() * 90}%`;
+            leaf.style.left = `${Math.random() * 90}%`;
+            document.body.appendChild(leaf);
+        }
+    </script>
+</body>
+</html>
+```
+
+This code creates a simple Spring-themed screensaver with a light green background, a yellow sun, pink flowers, and lime green leaves. The flowers and leaves are positioned at random locations on the screen and have animations to give a sense of movement. The sun is positioned at the top left corner of the screen.
